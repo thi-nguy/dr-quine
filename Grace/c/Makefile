@@ -1,4 +1,4 @@
-CC = clang
+CC = gcc
 CFLAGS += -W -Wall -Wextra -g3 -Werror
 
 RM = rm -f

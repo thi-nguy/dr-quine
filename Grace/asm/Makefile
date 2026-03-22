@@ -14,6 +14,6 @@ fclean: clean
 	rm -f $(NAME)
 re: fclean all
 
-test: all; diff $(SRC) Grace_kid.c
+test: all; diff $(SRC) Grace_kid.s
 
 .PHONY: all clean fclean re test
