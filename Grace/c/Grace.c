@@ -6,4 +6,4 @@
 #define WRITE(s) FILE *fp = fopen("Grace_kid.c", "w"); if(fp != NULL) {fprintf(fp, s, 10, 34, s);} fclose(fp);
 #define RUN int main() { WRITE(STR); return 0;};
 
-RUN
+RUN // ! Thêm phần handle lỗi khi dùng fopen, fprintf, fclose

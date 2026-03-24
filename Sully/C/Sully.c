@@ -21,7 +21,7 @@ int main() {
     }
     char fname[50];
     char exec_file[50];
-    FILE *fp = fopen(FILE_NAME(fname, I), "w");
+    FILE *fp = fopen(FILE_NAME(fname, I), "w"); // ! them phan handle loi cua fopen fprintf, fputc, flcose, system (neu can)
     if (fp) {
         fprintf(fp, FIRST_HALF, 10);
         fputc('0' + I, fp);

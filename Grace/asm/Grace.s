@@ -36,3 +36,5 @@ section .note.GNU-stack noalloc noexec nowrite progbits
 %endmacro
 
 RUN
+
+// ! Thêm phần handle lỗi khi dùng fopen, fprintf, fclose
