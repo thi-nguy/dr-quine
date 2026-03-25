@@ -22,12 +22,31 @@ int main() {
     char fname[50];
     char exec_file[50];
     FILE *fp = fopen(FILE_NAME(fname, I), "w"); // ! them phan handle loi cua fopen fprintf, fputc, flcose, system (neu can)
-    if (fp) {
-        fprintf(fp, FIRST_HALF, 10);
-        fputc('0' + I, fp);
-        fprintf(fp, SECOND_HALF, 10, 34, FIRST_HALF, SECOND_HALF);
-        fclose(fp);
+    if (fp == NULL) {
+        perror("fopen");
+        return 1;
     }
+    int ret1 = fprintf(fp, FIRST_HALF, 10);
+    if (ret1 < 0) {
+        perror("fprintf");
+        return 1;
+    }
+    int ret_fputc = fputc('0' + I, fp);
+    if (ret_fputc == EOF) {
+        perror("fputc");
+        return 1;
+    }
+    int ret2 = fprintf(fp, SECOND_HALF, 10, 34, FIRST_HALF, SECOND_HALF);
+    if (ret2 < 0) {
+        perror("fprintf");
+        return 1;
+    }
+    int ret_fclose = fclose(fp);
+    if (ret_fclose == EOF) {
+        perror("fclose");
+        return 1;
+    }
+    
     char cmd[256];
     strcpy(cmd, "gcc -Wall -Wextra -Werror -D GENERATED ");
     strcat(cmd, FILE_NAME(fname, I));
